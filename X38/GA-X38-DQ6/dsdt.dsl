@@ -4935,6 +4935,31 @@ DefinitionBlock ("./dsdt.aml", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                     And (BAS0, 0xFFFE, Local0)
                     Return (Local0)
                 }
+
+                Device (BUS0)
+                {
+                    Name (_CID, "smbus")
+                    Name (_ADR, Zero)
+                    Device (DVL0)
+                    {
+                        Name (_ADR, 0x57)
+                        Name (_CID, "diagsvault")
+                        Method (_DSM, 4, NotSerialized)
+                        {
+                            Store (Package (0x03)
+                                {
+                                    "address", 
+                                    0x57, 
+                                    Buffer (One)
+                                    {
+                                        0x00
+                                    }
+                                }, Local0)
+                            DTGP (Arg0, Arg1, Arg2, Arg3, RefOf (Local0))
+                            Return (Local0)
+                        }
+                    }
+                }
             }
 
             Device (HDEF)
