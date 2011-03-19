@@ -4231,7 +4231,7 @@ DefinitionBlock ("./dsdt.aml", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                     FAS1,   2
                 }
 
-                Device (PRIM)
+                Device (PRT0)
                 {
                     Name (_ADR, 0x00)
                     Method (_GTM, 0, NotSerialized)
@@ -4353,7 +4353,7 @@ DefinitionBlock ("./dsdt.aml", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                     FAS1,   2
                 }
 
-                Device (PRIM)
+                Device (PRT0)
                 {
                     Name (_ADR, 0x00)
                     Method (_GTM, 0, NotSerialized)
