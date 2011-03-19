@@ -4205,7 +4205,7 @@ DefinitionBlock ("./dsdt.aml", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                 })
             }
 
-            Device (IDE1)
+            Device (SATA)
             {
                 Name (_ADR, 0x001F0002)
                 OperationRegion (PCI, PCI_Config, 0x40, 0x20)
