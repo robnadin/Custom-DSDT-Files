@@ -4270,6 +4270,20 @@ DefinitionBlock ("./dsdt.aml", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                     FAS1,   2
                 }
 
+                Method (_DSM, 4, NotSerialized)
+                {
+                    Store (Package (0x02)
+                        {
+                            "device-id", 
+                            Buffer (0x04)
+                            {
+                                0x81, 0x26, 0x00, 0x00
+                            }
+                        }, Local0)
+                    DTGP (Arg0, Arg1, Arg2, Arg3, RefOf (Local0))
+                    Return (Local0)
+                }
+
                 Device (PRT0)
                 {
                     Name (_ADR, 0x00)
