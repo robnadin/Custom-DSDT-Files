@@ -378,7 +378,7 @@ DefinitionBlock ("./dsdt.aml", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
             Notify (\_SB.PCI0.EHC1, 0x02)
             Notify (\_SB.PCI0.EHC2, 0x02)
             Notify (\_SB.PWRB, 0x02)
-            Notify (\_SB.PCI0.AZAL, 0x02)
+            Notify (\_SB.PCI0.HDEF, 0x02)
         }
 
         Method (_L0B, 0, NotSerialized)
@@ -4937,7 +4937,7 @@ DefinitionBlock ("./dsdt.aml", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                 }
             }
 
-            Device (AZAL)
+            Device (HDEF)
             {
                 Name (_ADR, 0x001B0000)
                 Method (_PRW, 0, NotSerialized)
@@ -4947,6 +4947,41 @@ DefinitionBlock ("./dsdt.aml", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                         0x0D, 
                         0x05
                     })
+                }
+
+                Method (_DSM, 4, NotSerialized)
+                {
+                    Store (Package (0x0A)
+                        {
+                            "built-in", 
+                            Buffer (One)
+                            {
+                                0x00
+                            }, 
+
+                            "codec-id", 
+                            Buffer (0x04)
+                            {
+                                0x85, 0x08, 0xEC, 0x10
+                            }, 
+
+                            "layout-id", 
+                            Buffer (0x04)
+                            {
+                                0x75, 0x03, 0x00, 0x00
+                            }, 
+
+                            "device-type", 
+                            Buffer (0x10)
+                            {
+                                "Realtek ALC889a"
+                            }, 
+
+                            "PinConfigurations", 
+                            Buffer (Zero) {}
+                        }, Local0)
+                    DTGP (Arg0, Arg1, Arg2, Arg3, RefOf (Local0))
+                    Return (Local0)
                 }
             }
 
