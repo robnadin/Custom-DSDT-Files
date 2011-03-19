@@ -4278,7 +4278,7 @@ DefinitionBlock ("./dsdt.aml", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                     }
                 }
 
-                Device (SECD)
+                Device (PRT1)
                 {
                     Name (_ADR, 0x01)
                     Method (_GTM, 0, NotSerialized)
@@ -4400,7 +4400,7 @@ DefinitionBlock ("./dsdt.aml", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                     }
                 }
 
-                Device (SECD)
+                Device (PRT1)
                 {
                     Name (_ADR, 0x01)
                     Method (_GTM, 0, NotSerialized)
