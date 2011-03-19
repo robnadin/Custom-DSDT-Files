@@ -5004,7 +5004,7 @@ DefinitionBlock ("./dsdt.aml", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                 }
             }
 
-            Device (PX43)
+            Device (SBUS)
             {
                 Name (_ADR, 0x001F0003)
                 OperationRegion (PBAS, PCI_Config, 0x20, 0x02)
