@@ -295,7 +295,7 @@ DefinitionBlock ("./dsdt.aml", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
     {
         Method (_L08, 0, NotSerialized)
         {
-            Notify (\_SB.PCI0.PX40.UAR1, 0x02)
+            Notify (\_SB.PCI0.LPCB.UAR1, 0x02)
         }
 
         Method (_L03, 0, NotSerialized)
@@ -2581,13 +2581,13 @@ DefinitionBlock ("./dsdt.aml", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                 }
             }
 
-            Device (PX40)
+            Device (LPCB)
             {
                 Name (_ADR, 0x001F0000)
                 OperationRegion (PREV, PCI_Config, 0x08, 0x01)
                 Scope (\)
                 {
-                    Field (\_SB.PCI0.PX40.PREV, ByteAcc, NoLock, Preserve)
+                    Field (\_SB.PCI0.LPCB.PREV, ByteAcc, NoLock, Preserve)
                     {
                         REV0,   8
                     }
@@ -2596,7 +2596,7 @@ DefinitionBlock ("./dsdt.aml", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                 OperationRegion (PIRQ, PCI_Config, 0x60, 0x04)
                 Scope (\)
                 {
-                    Field (\_SB.PCI0.PX40.PIRQ, ByteAcc, NoLock, Preserve)
+                    Field (\_SB.PCI0.LPCB.PIRQ, ByteAcc, NoLock, Preserve)
                     {
                         PIRA,   8, 
                         PIRB,   8, 
@@ -2608,7 +2608,7 @@ DefinitionBlock ("./dsdt.aml", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                 OperationRegion (PIR2, PCI_Config, 0x68, 0x04)
                 Scope (\)
                 {
-                    Field (\_SB.PCI0.PX40.PIR2, ByteAcc, NoLock, Preserve)
+                    Field (\_SB.PCI0.LPCB.PIR2, ByteAcc, NoLock, Preserve)
                     {
                         PIRE,   8, 
                         PIRF,   8, 
@@ -2620,7 +2620,7 @@ DefinitionBlock ("./dsdt.aml", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                 OperationRegion (LPIO, PCI_Config, 0x80, 0x0E)
                 Scope (\)
                 {
-                    Field (\_SB.PCI0.PX40.LPIO, ByteAcc, NoLock, Preserve)
+                    Field (\_SB.PCI0.LPCB.LPIO, ByteAcc, NoLock, Preserve)
                     {
                         UAIO,   8, 
                         PRIO,   8, 
@@ -3315,9 +3315,9 @@ DefinitionBlock ("./dsdt.aml", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                             DMA (Compatibility, NotBusMaster, Transfer8, )
                                 {2}
                         })
-                        CreateByteField (BUF0, \_SB.PCI0.PX40.FDC0._CRS._Y01._MIN, IOLO)
+                        CreateByteField (BUF0, \_SB.PCI0.LPCB.FDC0._CRS._Y01._MIN, IOLO)
                         CreateByteField (BUF0, 0x03, IOHI)
-                        CreateByteField (BUF0, \_SB.PCI0.PX40.FDC0._CRS._Y01._MAX, IORL)
+                        CreateByteField (BUF0, \_SB.PCI0.LPCB.FDC0._CRS._Y01._MAX, IORL)
                         CreateByteField (BUF0, 0x05, IORH)
                         ENFG ()
                         EXFG ()
@@ -3415,11 +3415,11 @@ DefinitionBlock ("./dsdt.aml", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                             IRQNoFlags (_Y03)
                                 {}
                         })
-                        CreateByteField (BUF1, \_SB.PCI0.PX40.UAR1._CRS._Y02._MIN, IOLO)
+                        CreateByteField (BUF1, \_SB.PCI0.LPCB.UAR1._CRS._Y02._MIN, IOLO)
                         CreateByteField (BUF1, 0x03, IOHI)
-                        CreateByteField (BUF1, \_SB.PCI0.PX40.UAR1._CRS._Y02._MAX, IORL)
+                        CreateByteField (BUF1, \_SB.PCI0.LPCB.UAR1._CRS._Y02._MAX, IORL)
                         CreateByteField (BUF1, 0x05, IORH)
-                        CreateWordField (BUF1, \_SB.PCI0.PX40.UAR1._CRS._Y03._INT, IRQW)
+                        CreateWordField (BUF1, \_SB.PCI0.LPCB.UAR1._CRS._Y03._INT, IRQW)
                         ENFG ()
                         Store (0x01, LDN)
                         Store (IOAL, IOLO)
@@ -3588,12 +3588,12 @@ DefinitionBlock ("./dsdt.aml", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                             IRQNoFlags (_Y05)
                                 {}
                         })
-                        CreateByteField (BUF5, \_SB.PCI0.PX40.LPT1._CRS._Y04._MIN, IOLO)
+                        CreateByteField (BUF5, \_SB.PCI0.LPCB.LPT1._CRS._Y04._MIN, IOLO)
                         CreateByteField (BUF5, 0x03, IOHI)
-                        CreateByteField (BUF5, \_SB.PCI0.PX40.LPT1._CRS._Y04._MAX, IORL)
+                        CreateByteField (BUF5, \_SB.PCI0.LPCB.LPT1._CRS._Y04._MAX, IORL)
                         CreateByteField (BUF5, 0x05, IORH)
-                        CreateByteField (BUF5, \_SB.PCI0.PX40.LPT1._CRS._Y04._LEN, IOLE)
-                        CreateWordField (BUF5, \_SB.PCI0.PX40.LPT1._CRS._Y05._INT, IRQW)
+                        CreateByteField (BUF5, \_SB.PCI0.LPCB.LPT1._CRS._Y04._LEN, IOLE)
+                        CreateWordField (BUF5, \_SB.PCI0.LPCB.LPT1._CRS._Y05._INT, IRQW)
                         ENFG ()
                         Store (0x03, LDN)
                         Store (IOAL, IOLO)
@@ -3741,17 +3741,17 @@ DefinitionBlock ("./dsdt.aml", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                             DMA (Compatibility, NotBusMaster, Transfer8, _Y09)
                                 {}
                         })
-                        CreateByteField (BUF6, \_SB.PCI0.PX40.ECP1._CRS._Y06._MIN, IOLO)
+                        CreateByteField (BUF6, \_SB.PCI0.LPCB.ECP1._CRS._Y06._MIN, IOLO)
                         CreateByteField (BUF6, 0x03, IOHI)
-                        CreateByteField (BUF6, \_SB.PCI0.PX40.ECP1._CRS._Y06._MAX, IORL)
+                        CreateByteField (BUF6, \_SB.PCI0.LPCB.ECP1._CRS._Y06._MAX, IORL)
                         CreateByteField (BUF6, 0x05, IORH)
-                        CreateByteField (BUF6, \_SB.PCI0.PX40.ECP1._CRS._Y06._LEN, IOLE)
-                        CreateByteField (BUF6, \_SB.PCI0.PX40.ECP1._CRS._Y07._MIN, IOEL)
+                        CreateByteField (BUF6, \_SB.PCI0.LPCB.ECP1._CRS._Y06._LEN, IOLE)
+                        CreateByteField (BUF6, \_SB.PCI0.LPCB.ECP1._CRS._Y07._MIN, IOEL)
                         CreateByteField (BUF6, 0x0B, IOEH)
-                        CreateByteField (BUF6, \_SB.PCI0.PX40.ECP1._CRS._Y07._MAX, IOML)
+                        CreateByteField (BUF6, \_SB.PCI0.LPCB.ECP1._CRS._Y07._MAX, IOML)
                         CreateByteField (BUF6, 0x0D, IOMH)
-                        CreateWordField (BUF6, \_SB.PCI0.PX40.ECP1._CRS._Y08._INT, IRQW)
-                        CreateByteField (BUF6, \_SB.PCI0.PX40.ECP1._CRS._Y09._DMA, DMAC)
+                        CreateWordField (BUF6, \_SB.PCI0.LPCB.ECP1._CRS._Y08._INT, IRQW)
+                        CreateByteField (BUF6, \_SB.PCI0.LPCB.ECP1._CRS._Y09._DMA, DMAC)
                         ENFG ()
                         Store (0x03, LDN)
                         Store (IOAL, Local2)
