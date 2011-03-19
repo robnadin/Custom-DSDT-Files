@@ -276,6 +276,12 @@ DefinitionBlock ("./dsdt.aml", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
         Notify (\_SB.PCI0.UHC4, 0x00)
         Notify (\_SB.PCI0.UHC5, 0x00)
         Notify (\_SB.PCI0.UHC6, 0x00)
+
+        Return (Package (0x02)
+        {
+            Zero,
+            Zero
+        })
     }
 
     Scope (\_SI)
