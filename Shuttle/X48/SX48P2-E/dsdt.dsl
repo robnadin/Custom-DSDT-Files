@@ -415,18 +415,22 @@ DefinitionBlock ("./dsdt.aml", "DSDT", 1, "SHUTTL", "SX48EV10", 0x00001000)
         Notify (\_SB.PCI0.USB3, 0x00)
         Notify (\_SB.PCI0.USB4, 0x00)
         Notify (\_SB.PCI0.USB5, 0x00)
-    }
+        Return (Package (0x02)
+        {
+            Zero, 
+            Zero
+        })    }
 
     Scope (\_SI)
     {
         Method (_MSG, 1, NotSerialized)
         {
-            Store (Local0, Local0)
+            Store ("Local0", Local0)
         }
 
         Method (_SST, 1, NotSerialized)
         {
-            Store (Local0, Local0)
+            Store ("Local0", Local0)
         }
     }
 
