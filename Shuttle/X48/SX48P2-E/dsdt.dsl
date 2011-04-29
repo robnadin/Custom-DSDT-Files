@@ -2534,6 +2534,10 @@ DefinitionBlock ("./dsdt.aml", "DSDT", 1, "SHUTTL", "SX48EV10", 0x00001000)
                     Name (_HID, EisaId ("PNP0103"))
                     Name (ATT3, ResourceTemplate ()
                     {
+                        IRQNoFlags ()
+                            {0}
+                        IRQNoFlags ()
+                            {8}
                         Memory32Fixed (ReadWrite,
                             0xFED00000,         // Address Base
                             0x00000400,         // Address Length
